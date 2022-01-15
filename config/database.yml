@@ -1,0 +1,19 @@
+default: &default
+  host: pg
+  username: postgres
+  password: postgres
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: the_rails_app_development
+
+test:
+  <<: *default
+  database: the_rails_app_test
+
+production:
+  <<: *default
+  database: the_rails_app_production
